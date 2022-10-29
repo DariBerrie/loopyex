@@ -1,6 +1,9 @@
-<div class="container">
+<div class='container'>
 <h1>All yarns</h1>
 <% @yarns.each do |yarn| %>
-  <h3><%= yarn %></h3>
+  <h3><%= yarn.name %></h3>
+  <p><%= yarn.brand %></p>
+  <p><%= yarn.price %>$</p>
+  <p><%= yarn.created_at %></p>
 <% end %>
 </div>
