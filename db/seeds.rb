@@ -27,7 +27,7 @@ end
 10.times do
   yarn = Yarn.create!(
     name: Faker::Commerce.product_name,
-    colour: Faker::Color.color_name,
+    color: Faker::Color.color_name,
     price: Faker::Commerce.price,
     weight: ["DK", "4ply", "Worsted", "Chunky", "Super Chunky"].sample,
     brand: Faker::Company.name,
