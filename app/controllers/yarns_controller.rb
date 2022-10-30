@@ -1,10 +1,12 @@
 class YarnsController < ApplicationController
+# YarnsController may be able to inherit ProductsController
+  before_action :set_yarn, only: %i[ show edit destroy update ]
+
   def index
     @yarns = Yarn.all
   end
 
   def show
-    @yarn = Yarn.find(params[:id])
   end
 
   def new
@@ -22,22 +24,23 @@ class YarnsController < ApplicationController
   end
 
   def edit
-    @yarn = Yarn.find(params[:id])
   end
 
   def update
-    @yarn = Yarn.find(params[:id])
     @yarn = Yarn.update(yarn_params)
     redirect_to yarn_path(@yarn), notice: "Yarn updated successfully."
   end
 
   def destroy
-    @yarn = Yarn.find(params[:id])
     @yarn.destroy
     redirect_to yarns_path, status: :see_other
   end
 
   private
+
+  def set_yarn
+    @yarn = Yarn.find(params[:id])
+  end
 
   def yarn_params
     params.require(:yarn).permit(:name, :brand, :material, :price)
