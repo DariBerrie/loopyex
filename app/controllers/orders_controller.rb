@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-    def new
+  def new
     @order = Order.new
   end
 
@@ -16,6 +16,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:user_id, :yarn_id)
+    params.require(:order).permit(:user_id, :product_id)
   end
 end
