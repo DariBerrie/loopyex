@@ -1,4 +1,2 @@
-class Yarn < ApplicationRecord
-  belongs_to :user
-  validates :name, presence: true
+class Yarn < Product
 end
