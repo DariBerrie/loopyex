@@ -43,6 +43,6 @@ class YarnsController < ApplicationController
   end
 
   def yarn_params
-    params.require(:yarn).permit(:name, :brand, :material, :price)
+    params.require(:yarn).permit(:name, :brand, :material, :price, :quantity, :weight, :size)
   end
 end
