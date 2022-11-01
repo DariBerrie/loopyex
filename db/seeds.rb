@@ -31,6 +31,7 @@ end
     price: Faker::Commerce.price,
     weight: ["DK", "4ply", "Worsted", "Chunky", "Super Chunky"].sample,
     brand: Faker::Company.name,
+    quantity: 5,
     material: Faker::Commerce.material,
     user_id: User.all.sample.id
   )

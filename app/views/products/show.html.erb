@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row w-75">
+    <div class="col-8">
+      <div class="product-container">
+        <div class="carousel-container">
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active shadow">
+                <img src="https://images.unsplash.com/photo-1588676006059-956f7751dc31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+                class="d-block w-100 rounded-4" alt="...">
+              </div>
+              <div class="carousel-item shadow">
+                <img src="https://images.unsplash.com/photo-1588676081834-24a928659998?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+                class="d-block w-100 rounded-4" alt="...">
+              </div>
+              <div class="carousel-item shadow">
+                <img src="https://images.unsplash.com/photo-1588676006059-956f7751dc31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+                class="d-block w-100 rounded-4" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="description-container">
+          <%= link_to "Buy now", root_path, class: "btn btn-primary rounded-3 my-2" %>
+          <h3 class="fw-bold"><%= @product.price %>€</h3>
+          <h3 class="fw-bold"><%= @product.name %></h3>
+          <h3><%= @product.brand %></h3>
+          <p><strong>Yarn weight:</strong> <%= @product.weight %></p>
+          <p><strong>Composition:</strong> <%= @product.material %></p>
+          <p><strong>Color:</strong> <%= @product.color %></p>
+          <p>This is a description. This yarn is really great And is an amazing color.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="user-container d-flex flex-column align-items-center space-evenly">
+        <img src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1657958011/sxovr5ewgezo8xl6xpcy.jpg"
+            class="rounded-circle" alt="">
+        <div class="user-star-rating">
+          <% 5.times do %><i class="fa-solid fa-star"></i><% end %>
+        </div>
+        <div class="user-links-container d-flex flex-column">
+          <%= link_to "Message #{@product.user.first_name}", root_path, class: "btn btn-primary rounded-3 mb-2" %>
+          <%= link_to "See their stash", root_path, class: "btn btn-primary rounded-3" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="text-center">Check out more things by <%= @product.brand %></p>
+</div>
