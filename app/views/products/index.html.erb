@@ -1,0 +1,11 @@
+<div class="container">
+
+<h1>All yarns</h1>
+<div class="cards">
+  <% @products.each do |product| %>
+  <%= render partial: "shared/card", locals: { product: product } %>
+
+<% end %>
+</div>
+
+</div>
