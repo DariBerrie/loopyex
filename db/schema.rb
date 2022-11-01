@@ -16,9 +16,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_30_155402) do
 
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.bigint "yarn_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
+    t.index ["yarn_id"], name: "index_orders_on_yarn_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -52,6 +54,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_30_155402) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "yarns", force: :cascade do |t|
+    t.string "name"
+    t.string "colour"
+    t.float "price"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "material"
+    t.string "brand"
+    t.string "weight"
+    t.index ["user_id"], name: "index_yarns_on_user_id"
+  end
+
   add_foreign_key "orders", "users"
+  add_foreign_key "orders", "yarns"
   add_foreign_key "products", "users"
+  add_foreign_key "yarns", "users"
 end
