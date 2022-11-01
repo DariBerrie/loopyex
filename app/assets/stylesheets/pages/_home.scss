@@ -1,1 +1,24 @@
 // Specific CSS for your home-page
+
+body {
+  background-image: url("https://images.unsplash.com/photo-1532607792384-110a601b26df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80");
+  background-size: cover;
+}
+
+h1{
+  font-family: "Pacifico", "cursive";
+  font-size: 72px;
+  color:white;
+  text-align: center;
+  margin-top: 300px;
+  text-shadow: 1px 1px 2px rgb(62, 62, 62);
+}
+
+h4{
+  // font-size: 72px;
+  color:white;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgb(62, 62, 62);
+  margin-top: 24px;
+}
