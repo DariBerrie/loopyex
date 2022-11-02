@@ -1,7 +1,9 @@
 <div class="container">
-  <div class="row w-75">
-    <div class="col-8">
-      <div class="product-container">
+  <div class="row">
+    <div class="container d-flex align-items-center justify-content-center mb-4">
+      <div class="product-container"
+           style="width:50%">
+        <h2>Temporary Title</h2>
         <div class="carousel-container">
           <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
             <div class="carousel-indicators">
@@ -34,31 +36,57 @@
           </div>
         </div>
 
-        <div class="description-container">
-          <%= link_to "Buy now", root_path, class: "btn btn-primary rounded-3 my-2" %>
-          <h3 class="fw-bold"><%= @product.price %>€</h3>
-          <h3 class="fw-bold"><%= @product.name %></h3>
-          <h3><%= @product.brand %></h3>
-          <p><strong>Yarn weight:</strong> <%= @product.weight %></p>
-          <p><strong>Composition:</strong> <%= @product.material %></p>
-          <p><strong>Color:</strong> <%= @product.color %></p>
-          <p>This is a description. This yarn is really great And is an amazing color.</p>
-        </div>
+        <div class="row mt-3">
+          <div class="container d-flex flew-row">
+            <div class="description-container">
+              <h3 class="fw-bold"><%= @product.price %>€</h3>
+              <h3 class="fw-bold"><%= @product.name %></h3>
+              <h3><%= @product.brand %></h3>
+              <p><strong>Yarn weight:</strong> <%= @product.weight %>
+              <br><strong>Composition:</strong> <%= @product.material %>
+              <br><strong>Color:</strong> <%= @product.color %></p>
+              <p class="pe-5">This is a description. This yarn is really great And is an amazing color. I wish I could have made something with it.
+              But alas, it's not meant to be. I'd like these skeins to find a new home.</p>
+            </div>
+
+            <div class="user-container d-flex flex-column align-items-center bg-light shadow rounded-4 p-2 ms-2"
+                 style="width:400px;height:264px;">
+              <img src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1657958011/sxovr5ewgezo8xl6xpcy.jpg"
+                  class="avatar-large" alt="">
+                <p class="m-0"><%= @product.user.first_name %></p>
+
+              <div class="user-star-rating">
+                <% 5.times do %><i class="fa-solid fa-star text-warning"></i><% end %>
+              </div>
+
+              <div class="user-links-container d-flex flex-column">
+                <%= link_to "Buy now", root_path, class: "btn btn-success rounded-3 my-2 fw-bold text-white" %>
+                <%= link_to "See their stash", root_path, class: "btn btn-primary rounded-3 text-white" %>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
-    <div class="col-4">
-      <div class="user-container d-flex flex-column align-items-center space-evenly">
-        <img src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1657958011/sxovr5ewgezo8xl6xpcy.jpg"
-            class="rounded-circle" alt="">
-        <div class="user-star-rating">
-          <% 5.times do %><i class="fa-solid fa-star"></i><% end %>
-        </div>
-        <div class="user-links-container d-flex flex-column">
-          <%= link_to "Message #{@product.user.first_name}", root_path, class: "btn btn-primary rounded-3 mb-2" %>
-          <%= link_to "See their stash", root_path, class: "btn btn-primary rounded-3" %>
-        </div>
-      </div>
+    <div class="map-container ms-4">
+      <!-- Change the token below (https://www.mapbox.com/account/access-tokens/) -->
+      <img id="map" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoiZGFyaWdvbGRtYW4iLCJhIjoiY2w4YWpobmFvMDZtYTQxcXFydXU5NXBmeSJ9.24yAwCQ8yKfvtKXcC0RMjg'
+           class="rounded-4"
+           style="height:636px;">
     </div>
   </div>
-  <p class="text-center">Check out more things by <%= @product.brand %></p>
+  <p class="fw-bold text-center">Check out more things by <%= @product.brand %></p>
+  <div class="container d-flex flex-row justify-content-center">
+    <img src="https://images.unsplash.com/photo-1588676006059-956f7751dc31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+        class="p-0 mx-3 rounded-4"
+        style="width:210px; height:150px;object-fit:cover;">
+    <img src="https://images.unsplash.com/photo-1588676006059-956f7751dc31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+        class="p-0 mx-3 rounded-4"
+        style="width:210px; height:150px;object-fit:cover;">
+    <img src="https://images.unsplash.com/photo-1588676006059-956f7751dc31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+        class="p-0 mx-3 rounded-4"
+        style="width:210px; height:150px;object-fit:cover;">
+    <img src="https://images.unsplash.com/photo-1588676006059-956f7751dc31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+        class="p-0 mx-3 rounded-4"
+        style="width:210px; height:150px;object-fit:cover;">
+  </div>
 </div>
