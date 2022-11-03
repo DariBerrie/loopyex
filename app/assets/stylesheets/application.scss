@@ -21,3 +21,14 @@
   padding: 0;
   margin: 0;
 }
+
+// General site styles
+a {
+  text-decoration: none;
+  color: var(--bs-body-color)
+}
+
+a:hover {
+  text-decoration: none;
+  color: var(--bs-body-color)
+}
