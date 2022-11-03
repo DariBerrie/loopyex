@@ -13,8 +13,8 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product.user = User.find(params[user_id])
     @product = Product.create(product_params)
+    @product.user = current_user
     if @product.save
       redirect_to product_path(@product), notice: "Product added successfully."
     else

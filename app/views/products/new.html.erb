@@ -12,10 +12,16 @@
       <%= simple_form_for(@product) do |f| %>
         <div class="form-input">
           <%= f.input :name %>
-          <%= f.input :brand %>
+          <%= f.input :brand, as: :select, collection:  ['Adriafil', 'Austermann', 'BC Garn', 'Bergere de France', 'Berroco', 'Caron',
+                                      'Cascade Yarns', 'DMC', 'Debbie Bliss', 'Drops', 'Istex', 'ITO', 'Katia',
+                                      'Knitting for Olive', 'Lana Grossa', 'Lang Yarns', 'Lion Brand', 'Malabrigo',
+                                      'Noro', 'Novita', 'Phildar', 'Rico', 'Rowan', 'Schachenmayr', 'Scheepjes',
+                                      'The Fibre Co.', 'Life in the Long Grass', 'Hobbii', 'Other']%>
           <%= f.input :price %>
           <%= f.input :quantity %>
           <%= f.input :material %>
+          <%= f.input :weight, as: :select, collection: ['Lace', 'Fingering', 'Sock', 'Sport', 'DK', 'Worsted', 'Aran',
+          'Chunky', 'Super Chunky', 'Bulky', 'Jumbo', 'Other'] %>
           <%= f.input :photo, as: :file %>
         </div>
         <%= f.submit 'Add product', class: "btn-gray" %>
