@@ -6,7 +6,7 @@ class Product < ApplicationRecord
                                       'Knitting for Olive', 'Lana Grossa', 'Lang Yarns', 'Lion Brand', 'Malabrigo',
                                       'Noro', 'Novita', 'Phildar', 'Rico', 'Rowan', 'Schachenmayr', 'Scheepjes',
                                       'The Fibre Co.', 'Life in the Long Grass', 'Hobbii', 'Other'] }
-  validates :material, inclusion: { in: ['Lace', 'Fingering', 'Sock', 'Sport', 'DK', 'Worsted', 'Aran', 'Chunky',
+  validates :weight, inclusion: { in: ['Lace', 'Fingering', 'Sock', 'Sport', 'DK', 'Worsted', 'Aran', 'Chunky',
                                          'Super Chunky', 'Bulky', 'Jumbo', 'Other'] }
   has_many_attached :photos
 end
