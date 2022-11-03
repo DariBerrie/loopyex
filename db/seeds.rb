@@ -32,7 +32,8 @@ end
     weight: ["DK", "4ply", "Worsted", "Chunky", "Super Chunky"].sample,
     brand: Faker::Company.name,
     material: Faker::Commerce.material,
-    user_id: User.all.sample.id
+    user_id: User.all.sample.id,
+    quantity: 3
   )
   puts "Yarn #{yarn.id} created"
 end
