@@ -1,11 +1,22 @@
 <div class="container">
+  <%# Search %>
 
-<h1 class="header">Yarns curated for you</h1>
-<div class="cards">
-  <% @products.each do |product| %>
-  <%= render partial: "shared/card", locals: { product: product } %>
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for yarn...">
+        <span class="input-group-btn">
+          <button class="btn btn-primary" type="button">Yarn it!</button>
+        </span>
+      </div>
+    </div>
+  </div>
 
-<% end %>
-</div>
-
+  <div class="header-div"><h1 class="header">Yarns curated for you</h1>
+  </div>
+    <div class="cards">
+      <% @products.each do |product| %>
+        <%= render 'shared/card', product: product %>
+      <% end %>
+    </div>
 </div>

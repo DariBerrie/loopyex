@@ -1,4 +1,5 @@
-<div class="card">
+<%= link_to product_path(product.id) do %>
+<div class="card" >
   <%= image_tag "yarn.jpg", class:"card-img-top img" %>
     <div class="card-body">
           <h4 class="card-title"><%= product.name  %></h4>
@@ -13,3 +14,4 @@
 </div>
 </div>
 </div>
+<% end %>

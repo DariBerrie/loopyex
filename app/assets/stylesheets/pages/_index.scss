@@ -1,6 +1,12 @@
 // Import page-specific CSS files here.
 // Preventing import of logo header style on homepage.
+
+.header-div {
+  text-align: center;
+  margin-top: 30px;
+}
+
+
 .header {
-  margin-bottom: 80px;
-  text-shadow: 1px 1px 2px rgb(234, 145, 67);
+  margin-bottom: 30px;
 }
