@@ -8,5 +8,15 @@
 @import "font-awesome";
 
 // Your CSS partials
+@import "components/avatar";
 @import "components/index";
+@import "components/carousel";
 @import "pages/index";
+@import "pages/home";
+
+// General site reset
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}

@@ -1,2 +1,6 @@
 // Import page-specific CSS files here.
-@import "home";
+// Preventing import of logo header style on homepage.
+.header {
+  margin-bottom: 80px;
+  text-shadow: 1px 1px 2px rgb(234, 145, 67);
+}
