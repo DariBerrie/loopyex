@@ -1,6 +1,6 @@
 <div class="container">
 
-<h1>All yarns</h1>
+<h1 class="header">Yarns curated for you</h1>
 <div class="cards">
   <% @products.each do |product| %>
   <%= render partial: "shared/card", locals: { product: product } %>
