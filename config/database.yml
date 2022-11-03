@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: loopyex_production
+  database: postgres
   username: loopyex
   password: <%= ENV["LOOPYEX_DATABASE_PASSWORD"] %>
