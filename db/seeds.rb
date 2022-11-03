@@ -33,7 +33,8 @@ end
     brand: Faker::Company.name,
     quantity: 5,
     material: Faker::Commerce.material,
-    user_id: User.all.sample.id
+    user_id: User.all.sample.id,
+    quantity: 3
   )
   puts "Yarn #{yarn.id} created"
 end

@@ -1,0 +1,56 @@
+.new-product-form {
+  font-size: 15px;
+  background-image: url("https://images.unsplash.com/photo-1476683874822-744764a2438f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 7em;
+}
+
+.form-container {
+  max-width: 38em;
+  padding: 1em 3em 2em 3em;
+  margin: 0em auto;
+  background-color: #f4f4f4e2;
+  border-radius: 4.2px;
+}
+
+.container-relative {
+  position: relative;
+  display: inline-block;
+  margin-top: 1em;
+}
+
+.text-box {
+  h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate( -50%, -50% );
+  text-align: center;
+  color: $white;
+  font-weight: bold;
+  font-size: 34px;
+}
+}
+
+input[type="submit"] {
+  display: block;
+  margin: 0 auto;
+}
+
+abbr[title] {color: #cd6565;
+  text-decoration: none;}
+
+.form-input {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.btn-gray {
+  text-decoration: none;
+  padding: 10px;
+  border: 1px solid #919090;
+  display: inline-block;
+  color: #D5BDA;
+  border-radius: 5px;
+}
