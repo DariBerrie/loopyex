@@ -2,7 +2,7 @@
 <div class="row justify-content-center">
   <div class="col-10 col-lg-6 d-flex flex-column align-items-center">
     <div class="product-container">
-      <h2>Temporary Title</h2>
+      <h2><%= @product.name %></h2>
       <div class="carousel-container">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
           <div class="carousel-indicators">
@@ -30,7 +30,6 @@
       <div class="description-container">
         <%= link_to "Buy now", root_path, class: "btn btn-success rounded-3 my-2 fw-bold text-white" %>
         <h4 class="fw-bold"><%= @product.price %>€</h4>
-        <h4 class="fw-bold"><%= @product.name %></h4>
         <h4><%= @product.brand %></h4>
         <p><strong>Yarn weight:</strong> <%= @product.weight %>
         <br><strong>Composition:</strong> <%= @product.material %>
