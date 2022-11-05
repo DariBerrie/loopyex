@@ -24,6 +24,7 @@ Yarn.destroy_all
   puts "User #{user.id} created"
 end
 
+
 # Create ten yarns
 10.times do
   yarn = Yarn.create!(
@@ -33,6 +34,8 @@ end
     weight: ['Lace', 'Fingering', 'Sock', 'Sport', 'DK', 'Worsted', 'Aran', 'Chunky',
              'Super Chunky', 'Bulky', 'Jumbo', 'Other'].sample,
     brand: "Knitting for Olive",
+    address: ['5 Av. Anatole France, Paris', '16 Villa Gaudelet, Paris', '15 Pl. Vendôme, Paris',
+              '35 Rue du Chevalier de la Barre, Paris', '82 Bd de Clichy, Paris'].sample,
     quantity: 3,
     material: Faker::Commerce.material,
     user_id: User.all.sample.id,

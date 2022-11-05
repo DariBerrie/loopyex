@@ -3,6 +3,12 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    @markers = @products.geocoded.map do |product|
+      {
+        lat: product.latitude,
+        lng: product.longitude
+      }
+    end
   end
 
   def show
