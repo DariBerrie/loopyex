@@ -32,3 +32,10 @@ a:hover {
   text-decoration: none;
   color: var(--bs-body-color)
 }
+
+// Devise styling
+.devise-card {
+  max-width: 800px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: #f9f9f9;
+}
