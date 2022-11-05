@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   belongs_to :user
-  has_one :order
+  has_one :order, dependent: :destroy
   validates :name, :brand, :weight, :price, :quantity, :material, presence: true
   validates :brand, inclusion: { in: ['Adriafil', 'Austermann', 'BC Garn', 'Bergere de France', 'Berroco', 'Caron',
                                       'Cascade Yarns', 'DMC', 'Debbie Bliss', 'Drops', 'Istex', 'ITO', 'Katia',
