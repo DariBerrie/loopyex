@@ -28,7 +28,11 @@
         </div>
       </div>
       <div class="description-container">
-        <%= link_to "Buy now", new_product_order_path(@product), class: "btn btn-success rounded-3 my-2 fw-bold text-white" %>
+        <% if @product.order %>
+          <p class="btn btn-danger my-2 fw-bold text-white"> Sold </p>
+        <% else %>
+          <%= link_to "Buy now", new_product_order_path(@product), class: "btn btn-success rounded-3 my-2 fw-bold text-white" %>
+        <% end %>
         <h4 class="fw-bold"><%= @product.price %>€</h4>
         <h4><%= @product.brand %></h4>
         <p><strong>Yarn weight:</strong> <%= @product.weight %>
