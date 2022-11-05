@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # Create five users
+
 puts "Destroying all users..."
 User.destroy_all
 puts "Destroying all yarns..."
@@ -30,12 +31,13 @@ end
     color: Faker::Color.color_name,
     price: Faker::Commerce.price,
     weight: ['Lace', 'Fingering', 'Sock', 'Sport', 'DK', 'Worsted', 'Aran', 'Chunky',
-                                         'Super Chunky', 'Bulky', 'Jumbo', 'Other'].sample,
+             'Super Chunky', 'Bulky', 'Jumbo', 'Other'].sample,
     brand: "Knitting for Olive",
-    quantity: 5,
+    quantity: 3,
     material: Faker::Commerce.material,
     user_id: User.all.sample.id,
-    quantity: 3
   )
+  yarn.photos.attach(io: File.open(File.join(Rails.root,'app/assets/images/IMG_5036 Medium.png')),
+                     filename: 'yarn2.png')
   puts "Yarn #{yarn.id} created"
 end
