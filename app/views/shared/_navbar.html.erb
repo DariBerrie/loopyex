@@ -3,31 +3,32 @@
     <%= link_to products_path, class: "navbar-brand" do %>
       <%= image_tag "loopyex.png" %>
     <% end %>
-    <% if user_signed_in? %>
-      <%= "Welcome, #{current_user.first_name}" %>
-    <% end %>
+    <%# <% if user_signed_in? %>
+      <%# <%= "Welcome, #{current_user.first_name}" %>
+    <%# <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <%# <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>
+    </button> %>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+      <ul class="navbar-nav me-auto align-items-center">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "List Product", new_product_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "My Orders", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-          <%= link_to "Log out", destroy_user_session_path, class: "nav-link", data: {turbo_method: :delete} %>
-          </li>
+
+            <li class="me-2">
+              <%= "Welcome, #{current_user.first_name}" %>
+            </li>
+
+          <br>
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1657958011/sxovr5ewgezo8xl6xpcy.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Sell Product", new_product_path, class: "dropdown-item" %>
+              <%= link_to "View Orders", "#", class: "dropdown-item" %>
               <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Messages", "#", class: "dropdown-item" %>
+              <hr class="dropdown-divider">
+              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
         <% else %>
