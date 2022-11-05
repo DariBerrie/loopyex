@@ -39,7 +39,6 @@ end
     quantity: 3,
     material: Faker::Commerce.material,
     user_id: User.all.sample.id,
-    address: "30 rue Stephenson, 75018, Paris, France"
   )
   yarn.photos.attach(io: File.open(File.join(Rails.root,'app/assets/images/IMG_5036 Medium.png')),
                      filename: 'yarn2.png')
