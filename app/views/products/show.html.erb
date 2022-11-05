@@ -11,18 +11,11 @@
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
           </div>
           <div class="carousel-inner">
-            <div class="carousel-item active shadow">
-              <img src="https://images.unsplash.com/photo-1588676006059-956f7751dc31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
-              class="d-block rounded-4" alt="..." id="carousel-img">
-            </div>
-            <div class="carousel-item shadow">
-              <img src="https://images.unsplash.com/photo-1588676081834-24a928659998?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
-              class="d-block rounded-4" alt="..." id="carousel-img">
-            </div>
-            <div class="carousel-item shadow">
-              <img src="https://images.unsplash.com/photo-1588676006059-956f7751dc31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
-              class="d-block rounded-4" alt="..." id="carousel-img">
-            </div>
+            <% @product.photos.each do |photo| %>
+              <div class="carousel-item active shadow">
+                <%= cl_image_tag photo.key, height: 350, width: 636, crop: :fill, class: "d-block rounded-4" %>
+              </div>
+            <% end %>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -36,18 +29,16 @@
       </div>
       <div class="description-container">
         <%= link_to "Buy now", root_path, class: "btn btn-success rounded-3 my-2 fw-bold text-white" %>
-        <h3 class="fw-bold"><%= @product.price %>€</h3>
-        <h3 class="fw-bold"><%= @product.name %></h3>
-        <h3><%= @product.brand %></h3>
+        <h4 class="fw-bold"><%= @product.price %>€</h4>
+        <h4 class="fw-bold"><%= @product.name %></h4>
+        <h4><%= @product.brand %></h4>
         <p><strong>Yarn weight:</strong> <%= @product.weight %>
         <br><strong>Composition:</strong> <%= @product.material %>
         <br><strong>Color:</strong> <%= @product.color %></p>
         <p class="pe-5">This is a description. This yarn is really great And is an amazing color. I wish I could have made something with it.
         But alas, it's not meant to be. I'd like these skeins to find a new home.</p>
       </div>
-    </div>
-
-      <div class="user-container d-flex flex-row align-items-center mt-3">
+      <div class="user-container d-flex flex-row justify-content-start align-items-center mt-3">
         <img src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1657958011/sxovr5ewgezo8xl6xpcy.jpg"
             class="avatar-large" alt="">
         <div class="user-links-container d-flex flex-column">
@@ -62,6 +53,8 @@
           <% end %>
         </div>
       </div>
+    </div>
+
   </div>
 
   <div class="col-10 col-lg-4">
@@ -74,18 +67,11 @@
 
     <div class="results-container mt-4 d-flex flex-wrap justify-content-center">
       <p class="fw-bold text-center">These listings may spark your interest!</p>
-      <img src="https://images.unsplash.com/photo-1588676006059-956f7751dc31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
-          class="m-2 rounded-4"
-          style="width:180px; height:150px;object-fit:cover;">
-      <img src="https://images.unsplash.com/photo-1588676006059-956f7751dc31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
-          class="m-2 rounded-4"
-          style="width:180px; height:150px;object-fit:cover;">
-      <img src="https://images.unsplash.com/photo-1588676006059-956f7751dc31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
-          class="m-2 rounded-4"
-          style="width:180px; height:150px;object-fit:cover;">
-      <img src="https://images.unsplash.com/photo-1588676006059-956f7751dc31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
-          class="m-2 rounded-4"
-          style="width:180px; height:150px;object-fit:cover;">
+      <% @suggested_products.each do |product| %>
+        <%= link_to product_path(product) do %>
+          <%= cl_image_tag product.photos[0].key, height: 150, width: 180, crop: :fill, class: "m-2 rounded-4" %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
