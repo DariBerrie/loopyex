@@ -2,7 +2,7 @@
 <div class="row justify-content-center">
   <div class="col-10 col-lg-6 d-flex flex-column align-items-center">
     <div class="product-container">
-      <h2>Temporary Title</h2>
+      <h2><%= @product.name %></h2>
       <div class="carousel-container">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
           <div class="carousel-indicators">
@@ -28,18 +28,17 @@
         </div>
       </div>
       <div class="description-container">
-        <%= link_to "Buy now", root_path, class: "btn btn-success rounded-3 my-2 fw-bold text-white" %>
+        <%= link_to "Buy now", new_product_order_path(@product), class: "btn btn-success rounded-3 my-2 fw-bold text-white" %>
         <h4 class="fw-bold"><%= @product.price %>€</h4>
-        <h4 class="fw-bold"><%= @product.name %></h4>
         <h4><%= @product.brand %></h4>
         <p><strong>Yarn weight:</strong> <%= @product.weight %>
         <br><strong>Composition:</strong> <%= @product.material %>
         <br><strong>Color:</strong> <%= @product.color %></p>
-        <p class="pe-5">This is a description. This yarn is really great And is an amazing color. I wish I could have made something with it.
+        <p class="pe-5">This yarn is really great and is an amazing color. I wish I could have made something with it.
         But alas, it's not meant to be. I'd like these skeins to find a new home.</p>
       </div>
       <div class="user-container d-flex flex-row justify-content-start align-items-center mt-3">
-        <img src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1657958011/sxovr5ewgezo8xl6xpcy.jpg"
+        <img src="https://avatars.githubusercontent.com/u/84019211?v=4"
             class="avatar-large" alt="">
         <div class="user-links-container d-flex flex-column">
           <div class="user-star-rating">

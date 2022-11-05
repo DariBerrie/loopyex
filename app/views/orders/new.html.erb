@@ -1,0 +1,16 @@
+<div class="container justify-content-center">
+  <div class="new-order-form">
+    <div class = 'form-container rounded-4'>
+      <div class = 'container-relative'>
+        <%= cl_image_tag @product.photos[0].key, width: 600, height: 400, crop: :fill, class: "rounded-4 my-4" %>
+        <div class="text-box">
+          <h2><%= @product.name %></h2>
+        </div>
+
+        <%= simple_form_for [@product, @order], url: product_orders_path(@product) do |f| %>
+          <%= f.submit 'Buy', class: "btn btn-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
