@@ -38,7 +38,8 @@ end
 # Create ten yarns
 10.times do
   yarn = Yarn.create!(
-    name: Faker::Commerce.product_name,
+    name: ['Gorgeous Skeins', 'Bundle of Yarn', 'Wound All-Natural Yarn', 'Organic Skeins',
+           'Hand-Dyed Yarns', 'Beautiful Bundles', 'Fluffy Yarn'].sample,
     color: Faker::Color.color_name,
     price: rand(10..50),
     weight: ['Lace', 'Fingering', 'Sock', 'Sport', 'DK', 'Worsted', 'Aran', 'Chunky',
