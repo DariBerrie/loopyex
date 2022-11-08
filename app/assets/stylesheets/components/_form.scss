@@ -13,8 +13,13 @@
 
 .container-relative {
   position: relative;
-  display: inline-block;
   margin-top: 1em;
+
+  .cover{
+    object-fit: cover;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
 }
 
 .text-box {
@@ -50,4 +55,9 @@ abbr[title] {color: #cd6565;
   display: inline-block;
   color: $gray;
   border-radius: 5px;
+  margin-bottom: 3em;
+}
+
+#productForm {
+  padding-bottom: 2em;
 }

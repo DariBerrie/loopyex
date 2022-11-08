@@ -1,81 +1,86 @@
 <div class="container d-flex justify-content-center">
-<div class="row justify-content-center">
-  <div class="col-10 col-lg-6 d-flex flex-column align-items-center">
-    <div class="product-container">
-      <h2><%= @product.name %></h2>
-      <div class="carousel-container">
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  <div class="row justify-content-center">
+    <div class="col-10 col-lg-6 d-flex flex-column align-items-center">
+      <div class="product-container">
+        <h2><%= @product.name %></h2>
+        <div class="carousel-container">
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <% @product.photos.each do |photo| %>
+                <div class="carousel-item active shadow">
+                  <%= cl_image_tag photo.key, height: 350, width: 636, crop: :fill, class: "d-block rounded-4" %>
+                </div>
+              <% end %>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
-          <div class="carousel-inner">
-            <% @product.photos.each do |photo| %>
-              <div class="carousel-item active shadow">
-                <%= cl_image_tag photo.key, height: 350, width: 636, crop: :fill, class: "d-block rounded-4" %>
-              </div>
-            <% end %>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
         </div>
-      </div>
-      <div class="description-container">
-        <% if @product.order %>
-          <p class="btn btn-danger my-2 fw-bold text-white"> Sold </p>
-        <% else %>
-          <%= link_to "Buy now", new_product_order_path(@product), class: "btn btn-success rounded-3 my-2 fw-bold text-white" %>
-        <% end %>
-        <h4 class="fw-bold"><%= @product.price %>€</h4>
-        <h4><%= @product.brand %></h4>
-        <p><strong>Yarn weight:</strong> <%= @product.weight %>
-        <br><strong>Composition:</strong> <%= @product.material %>
-        <br><strong>Color:</strong> <%= @product.color %></p>
-        <p class="pe-5">This yarn is really great and is an amazing color. I wish I could have made something with it.
-        But alas, it's not meant to be. I'd like these skeins to find a new home.</p>
-      </div>
-      <div class="user-container d-flex flex-row justify-content-start align-items-center mt-3">
-        <img src="https://avatars.githubusercontent.com/u/84019211?v=4"
-            class="avatar-large" alt="">
-        <div class="user-links-container d-flex flex-column">
-          <div class="user-star-rating">
-            <p class="fw-bold my-0 ms-3"><%= @product.user.first_name %>
-            <span class="ms-2"><% 5.times do %><i class="fa-solid fa-star text-warning"></i><% end %></span></p>
-          </div>
-          <% if @product.user == current_user %>
-            <%= link_to "See your stash", user_path(current_user), class: "btn btn-primary rounded-3 ms-3 text-white" %>
+        <div class="description-container">
+          <% if @product.order %>
+            <p class="btn btn-danger my-2 fw-bold text-white"> Sold </p>
           <% else %>
-            <%= link_to "See their stash", user_path(@product.user), class: "btn btn-primary rounded-3 ms-3 text-white" %>
+            <%= link_to "Buy now", new_product_order_path(@product), class: "btn btn-success rounded-3 my-2 fw-bold text-white" %>
+          <% end %>
+          <h4 class="fw-bold"><%= @product.price.round(2) %>€</h4>
+          <h4><%= @product.brand %></h4>
+          <p><strong>Yarn weight:</strong> <%= @product.weight %>
+          <br><strong>Composition:</strong> <%= @product.material %>
+          <br><strong>Color:</strong> <%= @product.color.capitalize %></p>
+          <p class="pe-5"><%= @product.description %><br>
+          <% if @time_ago == 0 %>
+            <em>Added today</em>
+          <% elsif @time_ago == 1 %>
+            <em>Added 1 day ago</em>
+          <% else %>
+            <em>Added <%= @time_ago %> days ago</em></p>
           <% end %>
         </div>
+        <div class="user-container d-flex flex-row justify-content-start align-items-center mt-3">
+          <%= image_tag @product.user.photo, class:"avatar-large", alt:"" %>
+          <div class="user-links-container d-flex flex-column">
+            <div class="user-star-rating">
+              <p class="fw-bold my-0 ms-3"><%= @product.user.first_name %>
+              <span class="ms-2"><% 5.times do %><i class="fa-solid fa-star text-warning"></i><% end %></span></p>
+            </div>
+            <% if @product.user == current_user %>
+              <%= link_to "See your stash", root_path, class: "btn btn-primary rounded-3 ms-3 text-white" %>
+            <% else %>
+              <%= link_to "See their stash", root_path, class: "btn btn-primary rounded-3 ms-3 text-white" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-10 col-lg-4">
+      <div class="map-container d-flex justify-content-center mt-5">
+        <!-- Change the token below (https://www.mapbox.com/account/access-tokens/) -->
+        <img id="map" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/350x400?access_token=pk.eyJ1IjoiZGFyaWdvbGRtYW4iLCJhIjoiY2w4YWpobmFvMDZtYTQxcXFydXU5NXBmeSJ9.24yAwCQ8yKfvtKXcC0RMjg'
+            class="rounded-4"
+            style="height:400px;">
+      </div>
+
+      <div class="results-container mt-4 d-flex flex-wrap justify-content-center">
+        <p class="fw-bold text-center">These listings may spark your interest!</p>
+        <% @suggested_products.each do |product| %>
+          <%= link_to product_path(product) do %>
+            <%= cl_image_tag product.photos[0].key, height: 150, width: 180, crop: :fill, class: "m-2 rounded-4" %>
+          <% end %>
+        <% end %>
       </div>
     </div>
-
   </div>
-
-  <div class="col-10 col-lg-4">
-    <div class="map-container d-flex justify-content-center mt-5">
-      <!-- Change the token below (https://www.mapbox.com/account/access-tokens/) -->
-      <img id="map" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/350x400?access_token=pk.eyJ1IjoiZGFyaWdvbGRtYW4iLCJhIjoiY2w4YWpobmFvMDZtYTQxcXFydXU5NXBmeSJ9.24yAwCQ8yKfvtKXcC0RMjg'
-           class="rounded-4"
-           style="height:400px;">
-    </div>
-
-    <div class="results-container mt-4 d-flex flex-wrap justify-content-center">
-      <p class="fw-bold text-center">These listings may spark your interest!</p>
-      <% @suggested_products.each do |product| %>
-        <%= link_to product_path(product) do %>
-          <%= cl_image_tag product.photos[0].key, height: 150, width: 180, crop: :fill, class: "m-2 rounded-4" %>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-</div>
 </div>

@@ -1,3 +1,4 @@
+require 'time'
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
 
@@ -13,7 +14,8 @@ class ProductsController < ApplicationController
 
   def show
     @suggested_products = Product.all.sample(4)
-    @product = Product.find(params[:id])
+    @marker = { lat: @product.geocode[0], lng: @product.geocode[1] }
+    @time_ago = ((Time.new - @product.created_at) / 1.day).round
   end
 
   def new

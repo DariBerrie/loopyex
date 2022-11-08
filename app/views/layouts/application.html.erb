@@ -8,14 +8,14 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "/assets/application.js", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag "application.js", "data-turbo-track": "reload", defer: true %>
     <%= favicon_link_tag asset_path('loopyex.png') %>
  </head>
 
   <body>
     <%= render "shared/navbar" %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%# <p class="notice"><%= notice %></p>
+    <%# <p class="alert"><%= alert %></p>
     <%= yield %>
     <br />
     <%= render "shared/footer" %>
