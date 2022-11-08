@@ -1,0 +1,17 @@
+<%= link_to product_path(product.id) do %>
+<div class="card" >
+  <%= image_tag product.photos[0], class:"card-img-top img" %>
+    <div class="card-body">
+          <h4 class="card-title"><%= product.name  %></h4>
+
+    <div class="small_row">
+      <p class="card-text"><%= product.brand %></p>
+      <span class="card-text price"><%= product.price.round(2) %> €</span>
+    </div>
+<div class="small_row">
+      <p class="card-text"><%= product.weight %></p>
+      <span class="card-text"><%= product.created_at.strftime("%Y-%m-%d") %></span>
+</div>
+</div>
+</div>
+<% end %>
