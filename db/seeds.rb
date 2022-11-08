@@ -7,7 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # Create five users
-
+puts "Destroying all orders..."
+Order.destroy_all
 puts "Destroying all users..."
 User.destroy_all
 puts "Destroying all yarns..."
