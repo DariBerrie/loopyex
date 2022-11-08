@@ -38,7 +38,14 @@
           <p><strong>Yarn weight:</strong> <%= @product.weight %>
           <br><strong>Composition:</strong> <%= @product.material %>
           <br><strong>Color:</strong> <%= @product.color.capitalize %></p>
-          <p class="pe-5"><%= @product.description %></p>
+          <p class="pe-5"><%= @product.description %><br>
+          <% if @time_ago == 0 %>
+            <em>Added today</em>
+          <% elsif @time_ago == 1 %>
+            <em>Added 1 day ago</em>
+          <% else %>
+            <em>Added <%= @time_ago %> days ago</em></p>
+          <% end %>
         </div>
         <div class="user-container d-flex flex-row justify-content-start align-items-center mt-3">
           <%= image_tag @product.user.photo, class:"avatar-large", alt:"" %>

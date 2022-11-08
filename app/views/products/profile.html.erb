@@ -1,0 +1,34 @@
+<%# Temporary name until back-end is sorted. %>
+<div class="container">
+<%= image_tag @product.user.photo, class: "avatar-large", atl: "..." %>
+<h3><%= @product.user.first_name %></h3>
+  <div class="user-star-rating">
+    <p class="fw-bold my-0 ms-3"><%= @product.user.first_name %>
+    <span class="ms-2"><% 5.times do %><i class="fa-solid fa-star text-warning"></i><% end %></span></p>
+  </div>
+
+  <% if @product.user == current_user %>
+    <h2>Your Stash</h2>
+  <% else %>
+    <h2><%= @product.user.first_name %>'s Stash</h2>
+  <% end %>
+  <div class="stash-container d-flex flex-row justify-content-center flex-wrap">
+    <% @product.user.products.each do |product| %>
+      <%= cl_image_tag ("27wai6x82llhtx7nddscgr0khmjk" height: 350, width: 450, crop: :fill, class: "rounded-4 m-2 shadow") %>
+      <h4><%= product.name %></h4>
+    <% end %>
+  </div>
+
+   <% if @product.user == current_user %>
+    <h2>Your Stash</h2>
+   <% else %>
+    <h2><%= @product.user.first_name %>'s Stash</h2>
+   <% end %>
+   <div class="stash-container d-flex flex-row justify-content-center flex-wrap">
+    <% @product.user.orders.each do |order| %>
+      <%= cl_image_tag ("27wai6x82llhtx7nddscgr0khmjk", height: 350, width: 450, crop: :fill, class: "rounded-4 m-2 shadow") %>
+      <h4><%= order.product.name %></h4>
+    <% end %>
+  </div>
+
+</div>
