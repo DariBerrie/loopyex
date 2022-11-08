@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #F4F4F4;
+  background: #f4f4f4;
+  max-height: fit-content;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,7 +13,5 @@
 }
 
 .center {
-  // display: inline-block;
-  // line-height: normal;
   vertical-align: middle;
 }

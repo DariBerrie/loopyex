@@ -6,12 +6,18 @@
   background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
-
+  display: block;
+  float: left;
+  border-top: 0;
+  // vertical-align: bottom;
 }
 
 .container {
   height: 100%;
   width: 100%;
+  // display: block;
+  // display: inline-block;
+  // float: left;
 }
 
 .logo{
