@@ -7,11 +7,20 @@
 .img {
   width: 100%;
   max-height: 300px;
+  object-fit: cover;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+
 }
 
 .card {
   max-width: 400px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+
 }
 
 .small_row {

@@ -10,7 +10,10 @@
     </div>
 <div class="small_row">
       <p class="card-text"><%= product.weight %></p>
-      <span class="card-text"><%= product.created_at.strftime("%Y-%m-%d") %></span>
+      <span class="card-text">Added
+      <%=((Time.new - product.created_at) / 1.day).round  %>
+      days ago
+      </span>
 </div>
 </div>
 </div>
