@@ -14,6 +14,7 @@ class ProductsController < ApplicationController
   def show
     @suggested_products = Product.all.sample(4)
     @product = Product.find(params[:id])
+    @marker = { lat: @product.geocode[0], lng: @product.geocode[1] }
   end
 
   def new

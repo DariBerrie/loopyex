@@ -1,17 +1,21 @@
 <div class="container justify-content-center">
-  <div class="new-order-form">
-    <div class = 'form-container rounded-4'>
-      <div class = 'container-relative'>
-        <%= cl_image_tag @product.photos[0].key, width: 600, height: 400, crop: :fill, class: "rounded-4 my-4 shadow" %>
-        <div class="text-box">
-          <h2><%= @product.name %></h2>
+  <div class="new-order-form d-flex flex-column align-items-center">
+    <div class = 'form-container d-flex flex-column justify-content-center align-items-center bg-white rounded-4 shadow'>
+        <%= cl_image_tag @product.photos[0].key, width: 560, height: 400, crop: :fill, class: "rounded-4" %>
+
+        <div class="confirmation-container align-self-start pt-3">
+          <p>Order summary:</p>
+          <h4><%= @product.name %> from <%= @product.brand %> in <%= @product.color.capitalize %></h4>
+          <h5><%= @product.quantity %> skeins</h5>
+          <h5>Sold by <%= @product.user.first_name %></h5>
         </div>
 
-        <%= simple_form_for [@product, @order], url: product_orders_path(@product) do |f| %>
+          <%= simple_form_for [@product, @order], url: product_orders_path(@product) do |f| %>
 
-          <%= f.submit 'Checkout', class: "btn btn-success p-3 text-white fw-bold shadow" %>
+          <%= f.submit 'Checkout', class: "btn btn-success p-3 text-white fw-bold shadow",
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to buy #{@product.name}?"} %>
+
         <% end %>
-      </div>
     </div>
   </div>
 </div>
