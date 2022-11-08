@@ -33,15 +33,17 @@
         <% else %>
           <%= link_to "Buy now", new_product_order_path(@product), class: "btn btn-success rounded-3 my-2 fw-bold text-white" %>
         <% end %>
-        <h4 class="fw-bold"><%= @product.price.round(2) %>€</h4>
+        <h4 class="fw-bold"><%= @product.price %>€</h4>
         <h4><%= @product.brand %></h4>
         <p><strong>Yarn weight:</strong> <%= @product.weight %>
         <br><strong>Composition:</strong> <%= @product.material %>
-        <br><strong>Color:</strong> <%= @product.color.capitalize %></p>
-        <p class="pe-5"><%= @product.description %></p>
+        <br><strong>Color:</strong> <%= @product.color %></p>
+        <p class="pe-5">This yarn is really great and is an amazing color. I wish I could have made something with it.
+        But alas, it's not meant to be. I'd like these skeins to find a new home.</p>
       </div>
       <div class="user-container d-flex flex-row justify-content-start align-items-center mt-3">
-        <%= image_tag @product.user.photo, class:"avatar-large", alt:"" %>
+        <img src="https://avatars.githubusercontent.com/u/84019211?v=4"
+            class="avatar-large" alt="">
         <div class="user-links-container d-flex flex-column">
           <div class="user-star-rating">
             <p class="fw-bold my-0 ms-3"><%= @product.user.first_name %>
