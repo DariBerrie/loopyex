@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row justify-content-center">
+  </div>
+
+  <div class="header-div">
+  <h1 class="header">
+    <% if @user == current_user %>
+      <%= "My Stash" %>
+    <% else %>
+      <%= "View #{@user.first_name}'s Stash" %>
+    <% end %>
+  </h1>
+  </div>
+  <div class="cards">
+    <% @products.each do |product| %>
+      <%= render 'shared/card', product: product %>
+    <% end %>
+  </div>
+
+</div>

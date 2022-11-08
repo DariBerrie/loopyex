@@ -24,7 +24,8 @@
             <%= image_tag "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1657958011/sxovr5ewgezo8xl6xpcy.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Sell Product", new_product_path, class: "dropdown-item" %>
-              <%= link_to "View Orders", "#", class: "dropdown-item" %>
+              <%= link_to "My Stash",  user_path(current_user), class:" dropdown-item" %>
+              <%= link_to "View Orders", product_orders_path(current_user), class: "dropdown-item" %>
               <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Messages", "#", class: "dropdown-item" %>
               <hr class="dropdown-divider">

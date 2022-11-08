@@ -50,9 +50,9 @@
             <span class="ms-2"><% 5.times do %><i class="fa-solid fa-star text-warning"></i><% end %></span></p>
           </div>
           <% if @product.user == current_user %>
-            <%= link_to "See your stash", root_path, class: "btn btn-primary rounded-3 ms-3 text-white" %>
+            <%= link_to "See your stash", user_path(current_user), class: "btn btn-primary rounded-3 ms-3 text-white" %>
           <% else %>
-            <%= link_to "See their stash", root_path, class: "btn btn-primary rounded-3 ms-3 text-white" %>
+            <%= link_to "See their stash", user_path(@product.user), class: "btn btn-primary rounded-3 ms-3 text-white" %>
           <% end %>
         </div>
       </div>
