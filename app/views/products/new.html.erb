@@ -1,8 +1,8 @@
 <div class="new-product-form">
-  <div class = 'form-container rounded-4'>
-    <div class = 'container-relative'>
+  <div class = "container devise-card" id="productForm">
+    <div class = 'container-relative' >
       <img src="https://images.unsplash.com/photo-1588676006059-956f7751dc31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
-      class="img rounded-4 " alt="..." >
+      class="img rounded-4 cover" alt="..." >
       <div class="text-box">
         <h2>Add new product</h2>
       </div>
@@ -11,7 +11,7 @@
     <div>
       <%= simple_form_for(@product) do |f| %>
         <div class="form-input">
-          <%= f.input :name %>
+          <%= f.input :name  %>
           <%= f.input :brand, as: :select, collection:  ['Adriafil', 'Austermann', 'BC Garn', 'Bergere de France', 'Berroco', 'Caron',
                                       'Cascade Yarns', 'DMC', 'Debbie Bliss', 'Drops', 'Istex', 'ITO', 'Katia',
                                       'Knitting for Olive', 'Lana Grossa', 'Lang Yarns', 'Lion Brand', 'Malabrigo',
@@ -22,8 +22,8 @@
           <%= f.input :material %>
           <%= f.input :weight, as: :select, collection: ['Lace', 'Fingering', 'Sock', 'Sport', 'DK', 'Worsted', 'Aran',
           'Chunky', 'Super Chunky', 'Bulky', 'Jumbo', 'Other'] %>
-          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
           <%= f.input :address %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         </div>
         <%= f.submit 'Add product', class: "btn-gray" %>
       <% end %>
