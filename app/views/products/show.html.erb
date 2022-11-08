@@ -37,11 +37,13 @@
         <h4><%= @product.brand %></h4>
         <p><strong>Yarn weight:</strong> <%= @product.weight %>
         <br><strong>Composition:</strong> <%= @product.material %>
-        <br><strong>Color:</strong> <%= @product.color.capitalize %></p>
-        <p class="pe-5"><%= @product.description %></p>
+        <br><strong>Color:</strong> <%= @product.color %></p>
+        <p class="pe-5">This yarn is really great and is an amazing color. I wish I could have made something with it.
+        But alas, it's not meant to be. I'd like these skeins to find a new home.</p>
       </div>
       <div class="user-container d-flex flex-row justify-content-start align-items-center mt-3">
-        <%= image_tag @product.user.photo, class:"avatar-large", alt:"" %>
+        <img src="https://avatars.githubusercontent.com/u/84019211?v=4"
+            class="avatar-large" alt="">
         <div class="user-links-container d-flex flex-column">
           <div class="user-star-rating">
             <p class="fw-bold my-0 ms-3"><%= @product.user.first_name %>
@@ -60,12 +62,12 @@
 
   <div class="col-10 col-lg-4">
     <div class="map-container d-flex justify-content-center mt-5">
-      <!-- Change the token below (https://www.mapbox.com/account/access-tokens/) -->
-      <img id="map" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/350x400?access_token=pk.eyJ1IjoiZGFyaWdvbGRtYW4iLCJhIjoiY2w4YWpobmFvMDZtYTQxcXFydXU5NXBmeSJ9.24yAwCQ8yKfvtKXcC0RMjg'
+      <div style="width:350px; height:400px"
+           data-controller="show-map"
            class="rounded-4"
-           style="height:400px;">
+           data-show-map-marker-value="<%= @marker.to_json %>"
+           data-show-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
-
     <div class="results-container mt-4 d-flex flex-wrap justify-content-center">
       <p class="fw-bold text-center">These listings may spark your interest!</p>
       <% @suggested_products.each do |product| %>
