@@ -1,6 +1,6 @@
 <div class="container d-flex justify-content-center">
   <div class="row justify-content-center">
-    <div class="col-10 col-lg-6 d-flex flex-column align-items-center">
+    <div class="col-xs-10 col-lg-6 d-flex flex-column align-items-center">
       <div class="product-container">
         <h2><%= @product.name %></h2>
         <div class="carousel-container">
@@ -13,7 +13,7 @@
             <div class="carousel-inner">
               <% @product.photos.each do |photo| %>
                 <div class="carousel-item active shadow">
-                  <%= cl_image_tag photo.key, height: 350, width: 636, crop: :fill, class: "d-block rounded-4" %>
+                  <%= cl_image_tag photo.key, height: 400, crop: :fill, class: "d-block rounded-4 img-fluid w-100" %>
                 </div>
               <% end %>
             </div>
@@ -74,15 +74,16 @@
             data-show-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
-    </div>
 
-      <div class="results-container mt-4 d-flex flex-wrap justify-content-center">
-        <p class="fw-bold text-center">These listings may spark your interest!</p>
-        <% @suggested_products.each do |product| %>
-          <%= link_to product_path(product) do %>
-            <%= cl_image_tag product.photos[0].key, height: 150, width: 180, crop: :fill, class: "m-2 rounded-4" %>
+      <div class="results-container mt-4 d-flex flex-column align-items-center">
+        <p class="fw-bold text-center mb-2">These listings may spark your interest!</p>
+        <div class="suggested-products-container d-flex flex-wrap justify-content-center">
+          <% @suggested_products.each do |product| %>
+            <%= link_to product_path(product) do %>
+              <%= cl_image_tag product.photos[0].key, height: 150, width: 180, crop: :fill, class: "m-2 rounded-4" %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
