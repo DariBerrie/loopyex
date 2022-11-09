@@ -8,6 +8,7 @@
   <div class="user-star-rating">
     <span class="fs-3 ms-2"><% 5.times do %><i class="fa-solid fa-star text-warning"></i><% end %></span>
   </div>
+  <hr>
   <h1 class="header">
     <% if @user == current_user %>
       <%= "My Stash" %>
@@ -16,7 +17,7 @@
     <% end %>
   </h1>
   </div>
-  <div class="cards">
+  <div class="cards d-flex flex-wrap justify-content-center" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
     <% @user_products.each do |product| %>
       <%= render 'shared/profile_card', product: product %>
     <% end %>

@@ -1,22 +1,28 @@
 <%= link_to product_path(product.id) do %>
-  <div class="profile_card" >
-    <%= image_tag product.photos[0], class:"card-img-top img" %>
+  <div class="card" style="width:300px">
 
-      <div class="card-container">
-        <h5 class="card-title"><%= product.name %></h5>
+      <%= image_tag product.photos[0], class:"card-img-top img", style: "height:150px; object-fit:cover;"%>
 
-
-      <div class="small_row">
-        <p class="card-text"><%= product.brand %></p>
-        <span class="card-text price"><%= product.price %> €</span>
+      <div class="card-container mx-3 mb-2">
+      <div class="small_row mt-2">
+        <h5 class="card-title mt-2 mb-0"><%= product.name %></h5>
+         <span class="card-text price"><%= product.price %> €</span>
       </div>
 
-      <div class="small_row">
-          <span class="card-text">Added
-          <%=((Time.new - product.created_at) / 1.day).round  %>
-          days ago
-          </span>
-      </div>
+      <p class="card-text m-0"><%= product.brand %></p>
+
+      <% if current_user == product.user %>
+        <div class="user-options-container d-flex flex-row justify-content-end">
+          <%= link_to edit_product_path(product) do %>
+            <p class="text-end mb-0 me-2"><i class="fa-solid fa-pencil"></i></p>
+          <% end %>
+          <%= link_to product_path(product),
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <i class="fa-solid fa-trash text-danger"></i>
+          <% end %>
+        </div>
+      <% end %>
+
     </div>
   </div>
   <% end %>
