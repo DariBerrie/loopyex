@@ -4,6 +4,9 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
+    @orders = Order.where(user: @user)
+    @products = @user.products
   end
 
   def new
