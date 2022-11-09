@@ -67,11 +67,14 @@
 
     <div class="col-10 col-lg-4">
       <div class="map-container d-flex justify-content-center mt-5">
-        <!-- Change the token below (https://www.mapbox.com/account/access-tokens/) -->
-        <img id="map" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/350x400?access_token=pk.eyJ1IjoiZGFyaWdvbGRtYW4iLCJhIjoiY2w4YWpobmFvMDZtYTQxcXFydXU5NXBmeSJ9.24yAwCQ8yKfvtKXcC0RMjg'
+        <div style="width:350px; height:400px"
+            data-controller="show-map"
             class="rounded-4"
-            style="height:400px;">
+            data-show-map-marker-value="<%= @marker.to_json %>"
+            data-show-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
       </div>
+    </div>
 
       <div class="results-container mt-4 d-flex flex-wrap justify-content-center">
         <p class="fw-bold text-center">These listings may spark your interest!</p>
