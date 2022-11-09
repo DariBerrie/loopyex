@@ -10,7 +10,6 @@
   object-fit: cover;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
-
 }
 
 .card {
@@ -20,7 +19,6 @@
   border-top-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
-
 }
 
 .small_row {
@@ -32,6 +30,15 @@
 .price {
   font-size: 1.2em;
   font-weight: bold;
+}
+
+.profile_card {
+  max-width: 300px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 
 

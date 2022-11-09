@@ -1,0 +1,22 @@
+<%= link_to product_path(product.id) do %>
+  <div class="profile_card" >
+    <%= image_tag product.photos[0], class:"card-img-top img" %>
+
+      <div class="card-container">
+        <h5 class="card-title"><%= product.name %></h5>
+
+
+      <div class="small_row">
+        <p class="card-text"><%= product.brand %></p>
+        <span class="card-text price"><%= product.price %> €</span>
+      </div>
+
+      <div class="small_row">
+          <span class="card-text">Added
+          <%=((Time.new - product.created_at) / 1.day).round  %>
+          days ago
+          </span>
+      </div>
+    </div>
+  </div>
+  <% end %>

@@ -3,6 +3,11 @@
   </div>
 
   <div class="header-div">
+  <%= image_tag @user.photo, class: "rounded-circle", atl: "...", style:"width:200px; height:200px; object-fit:cover;" %>
+  <h3><%= @user.first_name %></h3>
+  <div class="user-star-rating">
+    <span class="fs-3 ms-2"><% 5.times do %><i class="fa-solid fa-star text-warning"></i><% end %></span>
+  </div>
   <h1 class="header">
     <% if @user == current_user %>
       <%= "My Stash" %>
@@ -12,8 +17,8 @@
   </h1>
   </div>
   <div class="cards">
-    <% @products.each do |product| %>
-      <%= render 'shared/card', product: product %>
+    <% @user_products.each do |product| %>
+      <%= render 'shared/profile_card', product: product %>
     <% end %>
   </div>
 
