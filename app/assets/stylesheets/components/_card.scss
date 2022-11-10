@@ -10,7 +10,6 @@
   object-fit: cover;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
-
 }
 
 .card {
@@ -20,7 +19,6 @@
   border-top-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
-
 }
 
 .small_row {
@@ -33,7 +31,6 @@
   font-size: 1.2em;
   font-weight: bold;
 }
-
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {

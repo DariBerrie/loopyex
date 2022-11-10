@@ -1,6 +1,6 @@
 <div class="container d-flex justify-content-center">
   <div class="row justify-content-center">
-    <div class="col-10 col-lg-6 d-flex flex-column align-items-center">
+    <div class="col-xs-10 col-lg-6 d-flex flex-column align-items-center">
       <div class="product-container">
         <h2><%= @product.name %></h2>
         <div class="carousel-container">
@@ -10,11 +10,17 @@
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
-            <div class="carousel-inner">
+            <div class="carousel-inner w-100">
               <% @product.photos.each do |photo| %>
-                <div class="carousel-item active shadow">
-                  <%= cl_image_tag photo.key, height: 350, width: 636, crop: :fill, class: "d-block rounded-4" %>
-                </div>
+                <% if photo == @product.photos[0] %>
+                  <div class="carousel-item active">
+                    <%= cl_image_tag photo.key, height: 380, class: "d-block rounded-4 w-100 shadow" %>
+                  </div>
+                <% else %>
+                  <div class="carousel-item">
+                    <%= cl_image_tag photo.key, height: 380, class: "d-block rounded-4 w-100 shadow" %>
+                  </div>
+                <% end %>
               <% end %>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -27,40 +33,48 @@
             </button>
           </div>
         </div>
+
         <div class="description-container">
           <% if @product.order %>
             <p class="btn btn-danger my-2 fw-bold text-white"> Sold </p>
+          <% elsif @product.user == current_user %>
+            <%= link_to "Edit", edit_product_path(@product), class: "btn btn-warning rounded-3 my-2 fw-bold text-white" %>
           <% else %>
             <%= link_to "Buy now", new_product_order_path(@product), class: "btn btn-success rounded-3 my-2 fw-bold text-white" %>
           <% end %>
-          <h4 class="fw-bold"><%= @product.price.round(2) %>€</h4>
+
+          <h4 class="fw-bold"><%= @product.price %>€</h4>
           <h4><%= @product.brand %></h4>
           <p><strong>Yarn weight:</strong> <%= @product.weight %>
           <br><strong>Composition:</strong> <%= @product.material %>
-          <%# <br><strong>Color:</strong> <%= @product.color.capitalize</p> %>
-          <p class="pe-5"><%= @product.description %>
+          <br><strong>Color:</strong> <%= @product.color.capitalize %></p>
+          <p class="pe-5 mb-2"><%= @product.description %>
           <br>
-          <br>
+          
           <% if @time_ago == 0 %>
-            <em>Added today</em>
+            <p class="fst-italic text-secondary">Added today</p>
           <% elsif @time_ago == 1 %>
-            <em>Added 1 day ago</em>
+            <p class="fst-italic text-secondary">Added 1 day ago</p>
           <% else %>
-            <em>Added <%= @time_ago %> days ago</em></p>
+            <p class="fst-italic text-secondary">Added <%= @time_ago %> days ago</p>
           <% end %>
         </div>
         <div class="user-container d-flex flex-row justify-content-start align-items-center mt-3">
-          <%# <%= image_tag @product.user.photo, class:"avatar-large", alt:"" %> HOLD
+
+          <%= image_tag @product.user.photo, class:"avatar-large", alt:"", style:"object-fit:cover;" %>
+
           <div class="user-links-container d-flex flex-column">
             <div class="user-star-rating">
               <p class="fw-bold my-0 ms-3"><%= @product.user.first_name %>
               <span class="ms-2"><% 5.times do %><i class="fa-solid fa-star text-warning"></i><% end %></span></p>
             </div>
+
           <% if @product.user == current_user %>
             <%= link_to "See your stash", user_path(current_user), class: "btn btn-primary rounded-3 ms-3 text-white" %>
           <% else %>
             <%= link_to "See their stash", user_path(@product.user), class: "btn btn-primary rounded-3 ms-3 text-white" %>
           <% end %>
+
           </div>
         </div>
       </div>
@@ -76,15 +90,16 @@
             data-show-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
-    </div>
 
-      <div class="results-container mt-4 d-flex flex-wrap justify-content-center">
-        <p class="fw-bold text-center">These listings may spark your interest!</p>
-        <% @suggested_products.each do |product| %>
-          <%= link_to product_path(product) do %>
-            <%= cl_image_tag product.photos[0].key, height: 150, width: 180, crop: :fill, class: "m-2 rounded-4" %>
+      <div class="results-container mt-4 d-flex flex-column align-items-center">
+        <p class="fw-bold text-center mb-2">These listings may spark your interest!</p>
+        <div class="suggested-products-container d-flex flex-wrap justify-content-center">
+          <% @suggested_products.each do |product| %>
+            <%= link_to product_path(product) do %>
+              <%= cl_image_tag product.photos[0].key, height: 150, width: 180, crop: :fill, class: "m-2 rounded-4" %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
