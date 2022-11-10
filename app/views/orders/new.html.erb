@@ -5,6 +5,7 @@
 
         <div class="confirmation-container align-self-start pt-3">
           <p>Order summary:</p>
+          <h4><%= @product.price %>€</h4>
           <h4><%= @product.name %> from <%= @product.brand %> in <%= @product.color.capitalize %></h4>
           <h5><%= @product.quantity %> skeins</h5>
           <h5>Sold by <%= @product.user.first_name %></h5>
