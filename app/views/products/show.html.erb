@@ -1,8 +1,10 @@
 <div class="container d-flex justify-content-center">
   <div class="row justify-content-center">
     <div class="col-xs-10 col-lg-6 d-flex flex-column align-items-center">
+
       <div class="product-container">
         <h2><%= @product.name %></h2>
+
         <div class="carousel-container">
           <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
             <div class="carousel-indicators">
@@ -10,15 +12,15 @@
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
-            <div class="carousel-inner w-100">
+            <div class="carousel-inner rounded-4">
               <% @product.photos.each do |photo| %>
                 <% if photo == @product.photos[0] %>
-                  <div class="carousel-item active">
-                    <%= cl_image_tag photo.key, height: 380, class: "d-block rounded-4 w-100 shadow" %>
+                  <div class="carousel-item active" style="height:380px">
+                    <%= cl_image_tag photo.key, class: "d-block", style: "height:auto; width:100%", crop: :fill, gravity: :center %>
                   </div>
                 <% else %>
-                  <div class="carousel-item">
-                    <%= cl_image_tag photo.key, height: 380, class: "d-block rounded-4 w-100 shadow" %>
+                  <div class="carousel-item" style="height:380px">
+                    <%= cl_image_tag photo.key, class: "d-block", style: "height:auto; width:100%", crop: :fill, gravity: :center %>
                   </div>
                 <% end %>
               <% end %>
@@ -34,7 +36,7 @@
           </div>
         </div>
 
-        <div class="description-container">
+        <div class="description-container m-2">
           <% if @product.order %>
             <p class="btn btn-danger my-2 fw-bold text-white"> Sold </p>
           <% elsif @product.user == current_user %>
@@ -59,8 +61,8 @@
             <p class="fst-italic text-secondary">Added <%= @time_ago %> days ago</p>
           <% end %>
         </div>
-        <div class="user-container d-flex flex-row justify-content-start align-items-center mt-3">
 
+        <div class="user-container d-flex flex-row justify-content-start align-items-center mt-3 ms-2">
           <%= image_tag @product.user.photo, class:"avatar-large", alt:"", style:"object-fit:cover;" %>
 
           <div class="user-links-container d-flex flex-column">
