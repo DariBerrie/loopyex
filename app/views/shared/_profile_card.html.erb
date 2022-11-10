@@ -1,5 +1,5 @@
 <%= link_to product_path(product) do %>
-  <div class="card" style="width:300px">
+  <div class="card profile" style="width:300px">
 
       <%= image_tag product.photos[0], class:"card-img-top img", style: "height:150px; object-fit:cover;"%>
 
@@ -10,6 +10,9 @@
       </div>
 
       <p class="card-text m-0"><%= product.brand %></p>
+      <% if product.order %>
+        <p class="card-text text-secondary"><%= product.order.created_at.strftime('Purchased on %b %d %Y') %></p>
+      <% end %>
 
       <% if current_user == product.user %>
         <div class="user-options-container d-flex flex-row justify-content-end">

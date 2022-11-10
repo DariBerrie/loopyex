@@ -52,13 +52,17 @@
           <br><strong>Color:</strong> <%= @product.color.capitalize %></p>
           <p class="pe-5 mb-2"><%= @product.description %>
           <br>
-          
-          <% if @time_ago == 0 %>
-            <p class="fst-italic text-secondary">Added today</p>
-          <% elsif @time_ago == 1 %>
-            <p class="fst-italic text-secondary">Added 1 day ago</p>
+
+          <% if @product.order %>
+            <p class="fst-italic text-secondary"><%= @product.order.created_at.strftime('Purchased on %b %d %Y') %></p>
           <% else %>
-            <p class="fst-italic text-secondary">Added <%= @time_ago %> days ago</p>
+            <% if @time_ago == 0 %>
+              <p class="fst-italic text-secondary">Added today</p>
+            <% elsif @time_ago == 1 %>
+              <p class="fst-italic text-secondary">Added 1 day ago</p>
+            <% else %>
+              <p class="fst-italic text-secondary">Added <%= @time_ago %> days ago</p>
+            <% end %>
           <% end %>
         </div>
 
