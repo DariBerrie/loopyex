@@ -41,8 +41,8 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product = Product.update(product_params)
-    redirect_to product_path(@product), notice: "Product updated successfully."
+    @product = @product.update(product_params)
+    # redirect_to product_path(@product), notice: "Product updated successfully."
   end
 
   def destroy
