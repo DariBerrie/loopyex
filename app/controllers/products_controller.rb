@@ -3,7 +3,12 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
 
   def index
-    @products = Product.all
+    if params[:query].present?
+      @products = Product.search_by_name_brand_material(params[:query])
+    else
+      @products = Product.all
+    end
+
     @markers = @products.geocoded.map do |product|
       {
         lat: product.latitude,

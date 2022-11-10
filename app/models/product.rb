@@ -14,4 +14,12 @@ class Product < ApplicationRecord
   has_many_attached :photos
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-end
+
+  include PgSearch::Model
+
+  pg_search_scope :search_by_name_brand_material,
+    against: [ :name, :brand ],
+    using: {
+      tsearch: { prefix: true }
+    }
+  end
