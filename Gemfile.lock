@@ -232,6 +232,9 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    simple_form_autocomplete (1.1.0)
+      activesupport
+      simple_form
     sprockets (4.1.1)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -298,6 +301,7 @@ DEPENDENCIES
   sassc-rails
   selenium-webdriver
   simple_form!
+  simple_form_autocomplete
   sprockets-rails
   stimulus-rails
   turbo-rails
