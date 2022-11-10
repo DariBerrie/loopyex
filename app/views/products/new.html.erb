@@ -22,6 +22,7 @@
           <%= f.input :material %>
           <%= f.input :weight, as: :select, collection: ['Lace', 'Fingering', 'Sock', 'Sport', 'DK', 'Worsted', 'Aran',
           'Chunky', 'Super Chunky', 'Bulky', 'Jumbo', 'Other'] %>
+          <%= f.input :description %>
           <%= f.input :address %>
           <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         </div>
