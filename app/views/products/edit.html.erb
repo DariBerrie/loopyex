@@ -1,0 +1,51 @@
+<div class="new-product-form">
+  <div class = "container devise-card" id="productForm">
+    <div class = 'container-relative' >
+      <img src="https://images.unsplash.com/photo-1588676006059-956f7751dc31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+      class="img rounded-4 cover" alt="..." >
+      <div class="text-box">
+        <h2>Edit this product</h2>
+    </div>
+    </div>
+      <div id="inputFields">
+      <%= simple_form_for(@product) do |f| %>
+        <div class="form-input">
+          <%= f.input :name, input_html: { value: @product.name } %>
+          <%= f.input :brand, as: :select, collection:  ['Adriafil', 'Austermann', 'BC Garn', 'Bergere de France', 'Berroco', 'Caron',
+                                      'Cascade Yarns', 'DMC', 'Debbie Bliss', 'Drops', 'Istex', 'ITO', 'Katia',
+                                      'Knitting for Olive', 'Lana Grossa', 'Lang Yarns', 'Lion Brand', 'Malabrigo',
+                                      'Noro', 'Novita', 'Phildar', 'Rico', 'Rowan', 'Schachenmayr', 'Scheepjes',
+                                      'The Fibre Co.', 'Life in the Long Grass', 'Hobbii', 'Other'], selected: { value: params[:brand] } %>
+          <%= f.input :price, input_html: {min: '0.1', step: '0.1', value: @product.price } %>
+          <%= f.input :quantity, input_html: {min: '1', value: @product.quantity }, step: 'any' %>
+          <%= f.input :color, input_html: { value: @product.color } %>
+          <%= f.input :material, input_html: { value: @product.material } %>
+          <%= f.input :weight, as: :select, collection: ['Lace', 'Fingering', 'Sock', 'Sport', 'DK', 'Worsted', 'Aran',
+          'Chunky', 'Super Chunky', 'Bulky', 'Jumbo', 'Other'], selected: { value: params[:weight] } %>
+          <%= f.input :description, input_html: { value: @product.description }  %>
+          <%= f.input :address, input_html: { value: @product.address } %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, "Update", class: "btn btn-gray" %>
+        </div>
+      <% end %>
+    </div>
+
+
+
+
+  <%# <h4>Delete product</h4> %>
+  <%# <p><%= link_to "Delete this product", product_path(product), data: { confirm: "Are you sure?" }, method: :delete %>
+
+    <div class="container">
+      <%= link_to "Back", :back %>
+    </div>
+  <br/>
+  <br/>
+
+    </div>
+  </div>
+
+
+</div>
