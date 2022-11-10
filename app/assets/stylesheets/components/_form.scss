@@ -1,6 +1,6 @@
 .new-product-form {
   font-size: 15px;
-  padding: 7em;
+  padding: 3em;
 }
 
 .form-container {
@@ -44,8 +44,13 @@ abbr[title] {color: #cd6565;
   text-decoration: none;}
 
 .form-input {
-  margin-top: 3em;
-  margin-bottom: 3em;
+  margin: 3em, 4em, 3em;
+  padding-bottom: 2em;
+  padding-top: 2em;
+}
+
+.form-label label {
+  display: inline
 }
 
 .btn-gray {
@@ -60,4 +65,16 @@ abbr[title] {color: #cd6565;
 
 #productForm {
   padding-bottom: 2em;
+  width: 45%;
 }
+
+#inputFields {
+  margin-left: 3em;
+  margin-right: 3em;
+}
+
+#test{
+  display: inline;
+}
+
+.form-inline div { display: inline-block }
