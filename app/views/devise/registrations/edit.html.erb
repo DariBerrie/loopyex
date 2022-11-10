@@ -23,7 +23,9 @@
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "address" }%>
-    <%= f.input :photo, as: :file %>
+    <%= f.input :photo, as: :file,
+                  required: true,
+                  autofocus: true %>
  </div>
 
  <div class="form-inputs">
