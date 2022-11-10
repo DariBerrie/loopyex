@@ -2,17 +2,13 @@
   justify-content: space-between;
   background: #f4f4f4;
   max-height: fit-content;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .left {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.navbar-brand img{
-color: #454444;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -30,4 +26,13 @@ color: #454444;
 .brand-name {
   font-family: "Pacifico", "cursive";
   font-size: 32px;
+  color: #010101
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  opacity: 0.9;
 }
