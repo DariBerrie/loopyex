@@ -2,7 +2,9 @@
   justify-content: space-between;
   background: #f4f4f4;
   max-height: fit-content;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  // border-bottom: 1px solid rgba(0,0,0,0.1);
+  border-bottom: 1px solid #7edba5;
+  margin-bottom: 20px;
 }
 
 .left {
@@ -34,5 +36,8 @@
   top: 0;
   width: 100%;
   z-index: 100;
-  opacity: 0.9;
+}
+
+.opacity-on-scroll {
+  opacity: 0.8;
 }
