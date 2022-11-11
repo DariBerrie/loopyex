@@ -6,11 +6,9 @@
     </h1>
   </div>
 
-  <div class="container">
-    <ul>
-      <% @orders.each do |order| %>
-        <li><%= order.product.name %></li>
-      <% end %>
-    </ul>
+  <div class="cards d-flex flex-wrap justify-content-start" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
+    <% @orders.each do |order| %>
+      <%= render 'shared/profile_card', product: order.product %>
+    <% end %>
   </div>
 </div>

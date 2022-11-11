@@ -19,6 +19,9 @@
   border-top-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
+  &:active {
+    box-shadow: none;
+  }
 }
 
 .small_row {
