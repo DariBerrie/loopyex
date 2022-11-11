@@ -17,12 +17,18 @@
                                       'Knitting for Olive', 'Lana Grossa', 'Lang Yarns', 'Lion Brand', 'Malabrigo',
                                       'Noro', 'Novita', 'Phildar', 'Rico', 'Rowan', 'Schachenmayr', 'Scheepjes',
                                       'The Fibre Co.', 'Life in the Long Grass', 'Hobbii', 'Other']%>
-          <%= f.input :price, input_html: {min: '0.1', step: '0.1'} %>
-          <%= f.input :quantity, input_html: {min: '1'}, step: 'any' %>
+          <div class="input-flex">
+            <div id="price">
+              <%= f.input :price, input_html: {min: '0.1', step: '0.1'}, style:"width: 10px;" %>
+            </div>
+            <div id="quantity">
+              <%= f.input :quantity, input_html: {min: '1'}, step: 'any' %>
+            </div>
+          </div>
           <%= f.input :color %>
           <%= f.input :material %>
           <%= f.input :weight, as: :select, collection: ['Lace', 'Fingering', 'Sock', 'Sport', 'DK', 'Worsted', 'Aran',
-          'Chunky', 'Super Chunky', 'Bulky', 'Jumbo', 'Other'] %>
+                                                        'Chunky', 'Super Chunky', 'Bulky', 'Jumbo', 'Other'] %>
           <%= f.input :description %>
           <%= f.input :address %>
           <%= f.input :photos, as: :file, input_html: { multiple: true } %>

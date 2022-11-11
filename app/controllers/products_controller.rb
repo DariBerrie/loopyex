@@ -12,7 +12,10 @@ class ProductsController < ApplicationController
     @markers = @products.geocoded.map do |product|
       {
         lat: product.latitude,
-        lng: product.longitude
+        lng: product.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { product: product }),
+        image_url: helpers.asset_url("loopyex.png")
+
       }
     end
   end
@@ -41,8 +44,8 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product = Product.update(product_params)
-    redirect_to product_path(@product), notice: "Product updated successfully."
+    @product = @product.update(product_params)
+    # redirect_to product_path(@product), notice: "Product updated successfully."
   end
 
   def destroy

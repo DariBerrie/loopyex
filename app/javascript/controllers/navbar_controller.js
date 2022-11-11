@@ -9,9 +9,9 @@ export default class extends Controller {
     const navbar = document.querySelector(".navbar");
     const sticky = navbar.offsetTop;
     if (window.pageYOffset >= sticky) {
-      navbar.classList.add("sticky");
+      navbar.classList.add("opacity-on-scroll");
     } else {
-      navbar.classList.remove("sticky");
+      navbar.classList.remove("opacity-on-scroll");
     }
   }
 }

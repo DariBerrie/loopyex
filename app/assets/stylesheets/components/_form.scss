@@ -73,8 +73,17 @@ abbr[title] {color: #cd6565;
   margin-right: 3em;
 }
 
-#test{
-  display: inline;
+.form-inline div { display: inline-block }
+
+.input-flex {
+  display: flex;
+  justify-content: space-between;
 }
 
-.form-inline div { display: inline-block }
+#price {
+  width: 44%;
+}
+
+#quantity {
+  width: 44%;
+}
