@@ -29,6 +29,16 @@
   }
 }
 
+.card-body {
+  position:relative;
+
+  .avatar-card {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+  }
+}
+
 .small_row {
   display: flex;
   flex-direction: row;
