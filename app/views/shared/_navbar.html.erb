@@ -3,7 +3,11 @@
   <div class="left"><%= link_to products_path, class: "navbar-brand" do %>
       <%= image_tag "loopyex.png" %>
     <% end %>
-    <h1 class='brand-name'>loopyex</h1></div>
+      <%= link_to products_path do %>
+        <h1 class='brand-name'>  loopyex</h1>
+      <% end %>
+
+    </div>
 
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
