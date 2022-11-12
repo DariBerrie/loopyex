@@ -3,6 +3,7 @@
   <%= image_tag product.photos[0], class:"card-img-top img" %>
     <div class="card-body">
           <h4 class="card-title"><%= product.name  %></h4>
+          <%= cl_image_tag product.user.photo.key, class: "avatar-card" %>
 
     <div class="small_row">
       <p class="card-text"><%= product.brand %></p>
