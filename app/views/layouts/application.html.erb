@@ -12,11 +12,12 @@
     <%= favicon_link_tag asset_path('loopyex.png') %>
  </head>
 
-  <body>
+  <body class="content">
     <%= render "shared/navbar" %>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
+    
     <%= yield %>
     <br />
     <%= render "shared/footer" %>

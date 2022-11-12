@@ -10,7 +10,13 @@ class ProductsController < ApplicationController
     end
 
     @markers = @products.geocoded.map do |product|
-      { lat: product.latitude, lng: product.longitude }
+      {
+        lat: product.latitude,
+        lng: product.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { product: product }),
+        image_url: helpers.asset_url("loopyex.png")
+
+      }
     end
   end
 

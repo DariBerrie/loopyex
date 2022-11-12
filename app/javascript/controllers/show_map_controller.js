@@ -1,4 +1,4 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="show-map"
 export default class extends Controller {
@@ -20,10 +20,8 @@ export default class extends Controller {
   }
 
   #addMarkerToMap() {
-    let mark = this.markerValue
-    mark = new mapboxgl.Marker()
-      .setLngLat([mark.lng, mark.lat])
-      .addTo(this.show_map);
+    let mark = this.markerValue;
+    mark = new mapboxgl.Marker().setLngLat([mark.lng, mark.lat]).addTo(this.show_map);
   }
 
   #fitMapToMarker() {
@@ -31,10 +29,10 @@ export default class extends Controller {
     // let mark = this.markerValue
     // mark = bounds.extend([ mark.lng, mark.lat ])
     // this.show_map.fitBounds(bounds, { padding: 10, maxZoom: 50, duration: 0 })
-    let mark = this.markerValue
+    let mark = this.markerValue;
     this.show_map.jumpTo({
       center: [mark.lng, mark.lat],
-      zoom: 12
-    })
+      zoom: 12,
+    });
   }
 }

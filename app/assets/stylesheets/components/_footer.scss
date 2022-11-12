@@ -1,5 +1,9 @@
 .footer {
   background: #f4f4f4;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -7,7 +11,8 @@
   height: 70px;
   padding: 0px 40px;
   color: rgba(0,0,0,0.3);
-  border-top: 1px solid rgba(0,0,0,0.1);
+  // border-top: 1px solid rgba(0,0,0,0.1);
+  border-top: 1px solid #7edba5;
 }
 .footer-links {
   display: flex;
@@ -21,8 +26,10 @@
   padding: 0px 10px;
 }
 .footer-links a:hover {
+  color: #7edba5;
   opacity: 1;
 }
 .footer .fa-heart {
-  color: rgb(57,81,63);
+  // color: rgb(57,81,63);
+  color: #7edba5;
 }
