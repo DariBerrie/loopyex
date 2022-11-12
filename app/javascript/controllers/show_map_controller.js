@@ -20,16 +20,16 @@ export default class extends Controller {
   }
 
   #addMarkerToMap() {
-    // Custom marker
-    // const customMarker = document.createElement("div");
-    // customMarker.className = "marker";
-    // customMarker.style.backgroundImage = `url('${markers.image_url}')`;
-    // customMarker.style.backgroundSize = "contain";
-    // customMarker.style.width = "40px";
-    // customMarker.style.height = "40px";
     let mark = this.markerValue;
+    //Custom marker
+    const customMarker = document.createElement("div");
+    customMarker.style.backgroundImage = `url('${mark.image_url}')`;
+    customMarker.style.backgroundSize = "contain";
+    customMarker.style.width = "40px";
+    customMarker.style.height = "40px";
 
-    mark = new mapboxgl.Marker().setLngLat([mark.lng, mark.lat]).addTo(this.show_map);
+
+    mark = new mapboxgl.Marker(customMarker).setLngLat([mark.lng, mark.lat]).addTo(this.show_map);
   }
 
   #fitMapToMarker() {
