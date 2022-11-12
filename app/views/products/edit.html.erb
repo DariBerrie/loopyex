@@ -25,7 +25,9 @@
           </div>
           <div class="d-flex justify-content-between flex-wrap p-0 m-0">
             <%= f.input :color, input_html: { value: @product.color } %>
-            <%= f.input :material, input_html: { value: @product.material } %>
+            <%= f.input :material,  as: :select, collection: ['Acrylic', 'Alpaca', 'Angora', 'Bamboo', 'Cashmere', 'Cotton', 'Linen',
+                                                          'Merino', 'Mohair', 'Polyester', 'Silk', 'Wool', 'Other'],
+                        selected: { value: @product.material } %>
             <%= f.input :weight, as: :select, collection: ['Lace', 'Fingering', 'Sock', 'Sport', 'DK', 'Worsted', 'Aran',
                                                            'Chunky', 'Super Chunky', 'Bulky', 'Jumbo', 'Other'],
                                                            selected: { value: @product.weight } %>
