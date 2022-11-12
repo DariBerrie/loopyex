@@ -11,21 +11,20 @@
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
-    <%= f.input :first_name,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "first_name" }%>
-    <%= f.input :last_name,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "last_name" }%>
-    <%= f.input :address,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "address" }%>
-    <%= f.input :photo, as: :file,
-                  required: true,
-                  autofocus: true %>
+      
+      <%= f.input :first_name,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "first_name" }%>
+      <%= f.input :last_name,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "last_name" }%>
+      <%= f.input :address,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "address" }%>
+      <%= f.input :photo, as: :file %>
  </div>
 
  <div class="form-inputs">
