@@ -8,12 +8,15 @@
       <p class="card-text"><%= product.brand %></p>
       <span class="card-text price"><%= product.price %> €</span>
     </div>
-<div class="small_row">
+  <div class="small_row">
       <p class="card-text"><%= product.weight %></p>
-      <span class="card-text">Added
-      <%=((Time.new - product.created_at) / 1.day).round  %>
-      days ago
-      </span>
+      <% if ((Time.new - product.created_at) / 1.day).round == 0 %>
+        <p class="fst-italic text-secondary">Added today</p>
+      <% elsif ((Time.new - product.created_at) / 1.day).round == 1 %>
+        <p class="fst-italic text-secondary">Added 1 day ago</p>
+      <% else %>
+        <p class="fst-italic text-secondary">Added <%= ((Time.new - product.created_at) / 1.day).round %> days ago</p>
+      <% end %>
 </div>
 </div>
 </div>
