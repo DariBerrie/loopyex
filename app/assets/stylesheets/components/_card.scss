@@ -29,19 +29,10 @@
   }
 }
 
-.card-body {
-  position:relative;
-}
-
 .small_row {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-.avatar-card {
-  position: absolute;
-  top: 8px;
-  right: 12px;
 }
 
 .price {
