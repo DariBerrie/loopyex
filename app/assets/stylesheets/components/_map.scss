@@ -1,5 +1,10 @@
 .mapboxgl-popup {
   max-width: 200px;
+  border-radius: 5px;
+}
+
+.mapboxgl-popup-close-button {
+  display: none;
 }
 
 .mapboxgl-popup-content {
@@ -8,8 +13,11 @@
 }
 
 .mapboxgl-popup .btn {
-color: #fff;
-background-color: #7edba5
+  color: #fff;
+  background-color: #7edba5;
+}
 
-
+.pop-up-text {
+  font-size: 11px;
+  font-weight: 300;
 }

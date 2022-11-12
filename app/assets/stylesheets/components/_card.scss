@@ -14,13 +14,18 @@
 
 .card {
   max-width: 400px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  // box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
+  transition: all 0.3s ease-in-out;
   &:active {
     box-shadow: none;
+  }
+  &:hover {
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
   }
 }
 
