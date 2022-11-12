@@ -17,8 +17,8 @@ class Product < ApplicationRecord
 
   include PgSearch::Model
 
-  pg_search_scope :search_by_name_brand_material,
-    against: [ :name, :brand ],
+  pg_search_scope :search_by_everything,
+    against: [ :name, :brand, :weight, :color, :description, :material ],
     using: {
       tsearch: { prefix: true }
     }
