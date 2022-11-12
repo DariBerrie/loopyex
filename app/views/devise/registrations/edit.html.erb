@@ -11,7 +11,7 @@
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
-      
+
       <%= f.input :first_name,
                     required: true,
                     autofocus: true,
@@ -47,7 +47,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Update", class: "btn btn-gray" %>
+    <%= f.button :submit, "Update", class: "btn btn-success fw-bold text-white fs-5" %>
   </div>
 
   <% end %>
