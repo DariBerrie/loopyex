@@ -10,3 +10,19 @@
 .header {
   margin-bottom: 30px;
 }
+
+.rounded-right {
+  // border-bottom-right-radius: 100%;
+  // border-top-right-radius: 100%;
+  border-radius: 25% 999em 999em 25%;
+}
+
+.rounded-left {
+  // border-bottom-left-radius: 50%;
+  // border-top-left-radius: 50%;
+  border-radius:999em 25% 25% 999em;
+}
+
+.form-control.background-white {
+  background-color:white
+}

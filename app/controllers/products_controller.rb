@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
 
   def index
     if params[:query].present?
-      @products = Product.search_by_name_brand_material(params[:query])
+      @products = Product.search_by_everything(params[:query])
     else
       @products = Product.all
     end
