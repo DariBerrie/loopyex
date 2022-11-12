@@ -6,10 +6,10 @@
     <%= form_with url: products_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
         params[:query],
-        class: "form-control rounded-left background-white",
+        class: "form-control rounded-left background-white fs-4",
         placeholder: "Search for yarn..."
       %>
-      <%= submit_tag "Yarn it!", class: "btn btn-primary rounded-right" %>
+      <%= submit_tag "Yarn it!", class: "btn btn-primary rounded-right fs-4 text-white" %>
     <% end %>
   </div>
   </div>
