@@ -22,7 +22,10 @@ class ProductsController < ApplicationController
 
   def show
     @suggested_products = Product.all.sample(4)
-    @marker = { lat: @product.geocode[0], lng: @product.geocode[1] }
+    @marker = {
+      lat: @product.geocode[0], lng: @product.geocode[1],
+      image_url: helpers.asset_url("loopyex.png")
+    }
     @time_ago = ((Time.new - @product.created_at) / 1.day).round
   end
 
