@@ -37,7 +37,7 @@ end
 
 # Create ten yarns
 10.times do
-  yarn = Yarn.create!(
+  yarn = Yarn.new(
     name: ['Gorgeous Skeins', 'Bundle of Yarn', 'Wound All-Natural Yarn', 'Organic Skeins',
            'Hand-Dyed Yarns', 'Beautiful Bundles', 'Fluffy Yarn'].sample,
     color: Faker::Color.color_name,
@@ -65,5 +65,6 @@ end
                      'app/assets/images/IMG_5045 Medium.png', 'app/assets/images/IMG_5070 Medium.png',
                      'app/assets/images/IMG_5072 Medium.png', 'app/assets/images/IMG_5077 Medium.png'].sample)),
                      filename: "product#{yarn.id}.png")
+  yarn.save
   puts "Yarn #{yarn.id} created"
 end
