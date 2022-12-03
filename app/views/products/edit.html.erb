@@ -49,9 +49,9 @@
         <div class="form-actions d-flex flex-column align-items-center">
           <%= f.button :submit, "Update", class: "btn btn-success fw-bold text-white fs-5" %>
           <%= link_to "Delete this product", product_path(@product),
-            data: { confirm: "Are you sure?" },
-            method: :delete,
-            class: "btn btn-info fw-bold text-white fs-5 mt-2" %>
+              data: { turbo_method: :delete,
+                    turbo_confirm: "Are you sure?",
+                    class: "btn btn-info fw-bold text-white fs-5 mt-2"} %>
         </div>
       <% end %>
     </div>
