@@ -314,8 +314,8 @@ DEPENDENCIES
   simple_form!
   sprockets-rails
   stimulus-rails
-  stripe
-  stripe_event
+  stripe (~> 8.0)
+  stripe_event (~> 2.7)
   turbo-rails
   tzinfo-data
   web-console
