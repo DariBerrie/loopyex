@@ -60,7 +60,7 @@ gem "geocoder"
 gem "pg_search"
 gem "money-rails"
 gem 'stripe', '~> 8.0'
-gem 'stripe_event', '~> 2.7'
+gem 'stripe_event'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
