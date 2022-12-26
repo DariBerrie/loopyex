@@ -5,18 +5,29 @@
 
         <div class="confirmation-container align-self-start pt-3">
           <p>Order summary:</p>
-          <h4><%= @product.price %>€</h4>
+          <h4><%= humanized_money_with_symbol(@product.price_cents)%></h4>
           <h4><%= @product.name %> from <%= @product.brand %> in <%= @product.color.capitalize %></h4>
           <h5><%= @product.quantity %> skeins</h5>
           <h5>Sold by <%= @product.user.first_name %></h5>
         </div>
 
-          <%= simple_form_for [@product, @order], url: product_orders_path(@product) do |f| %>
-
-          <%= f.submit 'Checkout', class: "btn btn-success p-3 text-white fw-bold shadow",
+          <%# simple_form_for [@product, @order], url: product_orders_path(@product) do |f|
+          f.submit 'Checkout', id: "checkout", class: "btn btn-success p-3 text-white fw-bold shadow",
               data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to buy #{@product.name}?"} %>
-
-        <% end %>
+          <%= form_tag product_orders_path do %>
+            <%= hidden_field_tag 'product_id', @product.id %>
+            <button type="submit" id="checkout" class="btn btn-success p-3 text-white fw-bold shadow">Checkout</button>
+          <% end %>
+          <script src="https://js.stripe.com/v3/"></script>
+          <script>
+            const paymentButton = document.getElementById('checkout');
+            paymentButton.addEventListener('click', () => {
+              const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+              stripe.redirectToCheckout({
+                sessionId: '<%= @order.checkout_session_id %>'
+              });
+            });
+          </script>
     </div>
   </div>
 </div>

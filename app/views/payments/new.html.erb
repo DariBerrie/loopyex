@@ -1,0 +1,27 @@
+<div class="container justify-content-center mb-5 pb-4">
+  <div class="new-payment-form d-flex flex-column align-items-center">
+    <div class = 'form-container d-flex flex-column justify-content-center align-items-center bg-white rounded-4 shadow'>
+        <%= cl_image_tag @order.product.photos[0].key, width: 560, height: 400, crop: :fill, class: "rounded-4" %>
+
+        <div class="confirmation-container align-self-start pt-3">
+          <p>Order summary:</p>
+          <h4><%= humanized_money_with_symbol(@order.amount)%></h4>
+          <h4><%= @order.product.name %> from <%= @order.product.brand %> in <%= @order.product.color.capitalize %></h4>
+          <h5><%= @order.product.quantity %> skeins</h5>
+          <h5>Sold by <%= @order.product.user.first_name %></h5>
+        </div>
+
+          <button id="checkout" class="btn btn-success p-3 text-white fw-bold shadow">Checkout</button>
+          <script src="https://js.stripe.com/v3/"></script>
+          <script>
+            const paymentButton = document.getElementById('checkout');
+            paymentButton.addEventListener('click', () => {
+              const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+              stripe.redirectToCheckout({
+                sessionId: '<%= @order.checkout_session_id %>'
+              });
+            });
+          </script>
+    </div>
+  </div>
+</div>

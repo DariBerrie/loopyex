@@ -4,7 +4,7 @@
       <%= image_tag "loopyex.png" %>
     <% end %>
       <%= link_to products_path do %>
-        <h1 class='brand-name'>  loopyex</h1>
+        <h1 class='brand-name'>  loopy</h1>
       <% end %>
 
     </div>
@@ -24,7 +24,7 @@
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Sell Product", new_product_path, class: "dropdown-item" %>
               <%= link_to "My Stash",  user_path(current_user), class:" dropdown-item" %>
-              <%= link_to "View Orders", product_orders_path(current_user), class: "dropdown-item" %>
+              <%= link_to "View Orders", user_orders_path(current_user), class: "dropdown-item" %>
               <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Messages", "#", class: "dropdown-item" %>
               <hr class="dropdown-divider">
