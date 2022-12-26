@@ -8,7 +8,7 @@
 
   <div class="cards d-flex flex-wrap justify-content-start" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
     <% @orders.each do |order| %>
-      <%= render 'shared/profile_card', product: order.product %>
+      <%= render 'shared/order_card', product: order.product %>
     <% end %>
   </div>
 </div>

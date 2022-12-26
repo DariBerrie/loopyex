@@ -8,10 +8,14 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users do
-    resources :orders, only: %i[ index show ]
+    resources :orders, only: %i[index show]
   end
 
-  resources :products do
-    resources :orders, only: %i[ index show new create ]
+  resources :products
+
+  resources :orders, only: %i[index show create] do
+    resources :payments, only: :new
   end
+
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
 end

@@ -42,10 +42,13 @@
           <% elsif @product.user == current_user %>
             <%= link_to "Edit", edit_product_path(@product), class: "btn btn-warning rounded-3 my-2 fw-bold text-white" %>
           <% else %>
-            <%= link_to "Buy now", new_product_order_path(@product), class: "btn btn-success rounded-3 my-2 fw-bold text-white" %>
+            <%= form_with url: orders_path do %>
+              <%= hidden_field_tag 'product_id', @product.id %>
+              <%= submit_tag "Buy now", class: "btn btn-success rounded-3 my-2 fw-bold text-white align-self-start" %>
+            <% end %>
           <% end %>
 
-          <h4 class="fw-bold"><%= @product.price %>€</h4>
+          <h4 class="fw-bold"><%= humanized_money_with_symbol(@product.price) %></h4>
           <h4><%= @product.brand %></h4>
           <p><strong>Yarn weight:</strong> <%= @product.weight %>
           <br><strong>Composition:</strong> <%= @product.material %>

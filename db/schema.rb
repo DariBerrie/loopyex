@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_09_083230) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_21_143028) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,6 +47,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_09_083230) do
     t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "amount_currency", default: "EUR", null: false
+    t.string "state"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "checkout_session_id"
     t.index ["product_id"], name: "index_orders_on_product_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -54,7 +58,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_09_083230) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.string "brand"
-    t.integer "price"
+    t.integer "price_cents"
     t.integer "quantity"
     t.string "weight"
     t.string "size"

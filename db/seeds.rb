@@ -41,7 +41,7 @@ end
     name: ['Gorgeous Skeins', 'Bundle of Yarn', 'Wound All-Natural Yarn', 'Organic Skeins',
            'Hand-Dyed Yarns', 'Beautiful Bundles', 'Fluffy Yarn'].sample,
     color: Faker::Color.color_name,
-    price: rand(10..50),
+    price: rand(10..50) * 100,
     weight: ['Lace', 'Fingering', 'Sock', 'Sport', 'DK', 'Worsted', 'Aran', 'Chunky',
              'Super Chunky', 'Bulky', 'Jumbo', 'Other'].sample,
     brand: ['Adriafil', 'Austermann', 'BC Garn', 'Bergere de France', 'Berroco', 'Caron',

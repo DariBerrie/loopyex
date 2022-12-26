@@ -1,0 +1,28 @@
+<div class="container justify-content-center mb-5 pb-4">
+  <%= link_to orders_path, class: "text-decoration-none" do %>
+    <i class="fa-solid fa-backward text-muted"></i> Back to your orders
+  <% end %>
+  <div class="new-payment-form d-flex flex-column align-items-center">
+    <div class = 'form-container d-flex flex-column justify-content-center align-items-center bg-white rounded-4 shadow'>
+        <%= cl_image_tag @order.product.photos[0].key, width: 560, height: 400, crop: :fill, class: "rounded-4" %>
+
+        <div class="confirmation-container align-self-start pt-3">
+          <h2>
+            <% case @order.state %>
+            <% when "pending" %>
+              <span class="btn btn-info text-white"><%= @order.state %></span>
+            <% when "paid" %>
+              <span class="btn btn-success text-white"><%= @order.state %></span>
+            <% end %>
+            Summary of Order nº<%= @order.id %>
+          </h2>
+          <h4><strong>ISSUED ON:</strong> <%= @order.created_at.to_date %></h4>
+          <h4><strong>AMOUNT PAID:</strong> <%= humanized_money_with_symbol(@order.amount)%></h4>
+          <h4><%= @order.product.name %> from <%= @order.product.brand %> in <%= @order.product.color.capitalize %></h4>
+          <h5><%= @order.product.quantity %> skeins</h5>
+          <h5>Sold by <%= @order.product.user.first_name %></h5>
+          <p>Estimated delivery in <strong>5 business days</strong></p>
+        </div>
+    </div>
+  </div>
+</div>
