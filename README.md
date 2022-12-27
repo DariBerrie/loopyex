@@ -2,7 +2,7 @@ Loopy, formerly known as LoopyEx, is an AirBNB clone project conceived during Le
 
 If you'd like to test it, go ahead! But please use [test card numbers](https://stripe.com/docs/testing?testing-method=card-numbers#visa) to go through the Stripe purchases 💳
 
-<img width="1428" alt="loopyexog" src="https://user-images.githubusercontent.com/59029920/209647535-ed725e81-8b1f-4add-96c6-d4db8f05d06a.png">
+<img width="1432" alt="Screen Shot 2022-12-27 at 10 47 31" src="https://user-images.githubusercontent.com/59029920/209647723-c3f0ed23-313e-4baf-aa4d-31aef860afad.png">
 
 Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
 
