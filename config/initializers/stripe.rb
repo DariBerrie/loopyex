@@ -1,10 +1,3 @@
-require "stripe"
-class StripeCheckoutSessionService
-  def call(event)
-    order = Order.find(checkout_session_id: event.data.object.id)
-    order.update(state: 'paid')
-  end
-end
 Rails.configuration.stripe = {
   publishable_key: ENV.fetch('STRIPE_PUBLISHABLE_KEY'),
   secret_key: ENV.fetch('STRIPE_SECRET_KEY'),
